@@ -1,0 +1,16 @@
+body {
+  background-image: url("/assets/DIYsign-pic.jpg");
+  font-family: Futura;
+  font-weight: bold;
+}
+
+.heading {
+  color: white;
+  font-family: Futura;
+  font-size: 6em;
+}
+
+.navbar {
+  background-color: black;
+  font-weight: bold;
+}

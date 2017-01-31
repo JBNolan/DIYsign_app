@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>DIYsignApp</title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-
     <nav>
-      <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <%= link_to 'Update Info', edit_user_registration_path %>
-      <%else%>
-        <%= link_to 'Sign In', new_user_session_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      <% end %>
+      <div class="top-bar navbar">
+        <div class="top-bar-left navbar">
+          <% if user_signed_in? %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <%= link_to 'Update Info', edit_user_registration_path %>
+          <%else%>
+            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
     </nav>
+
+    <h1 class="text-center heading">DIYsign.</h1>
 
     <% if notice.is_a?(Array) %>
       <% notice.each do |this_notice| %>
@@ -27,7 +35,9 @@
     <% elsif notice %>
       <p class="notice"> <%= notice %></p>
     <% end %>
+    <div class="row">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
   </body>
 </html>
