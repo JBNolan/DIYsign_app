@@ -1,0 +1,15 @@
+<ul>
+  <li><%= @project.title %> </li>
+  <li><%= image_tag(@project.picture) %> </li>
+  <li><%= @project.description %> </li>
+  <li><%= @project.supplies %> </li>
+  <li><%= @project.user.username %> </li>
+</ul>
+
+<% if current_user.id == @project.user.id %>
+  <%= link_to "Update Project", edit_project_path %>
+<% end %>
+
+<% if current_user.id == @project.user.id %>
+  <%= link_to "Delete Project", @project, method: :delete %>
+<% end %>

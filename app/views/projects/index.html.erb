@@ -1,1 +1,6 @@
-<h1> homepage </h1>
+<% @projects.each do |project| %>
+  <ul>
+    <li> <%= link_to project.title, project %> </li>
+    <%= image_tag(project.picture) %>
+  </ul>
+<% end %>
