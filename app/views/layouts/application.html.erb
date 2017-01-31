@@ -23,11 +23,16 @@
             <%= link_to 'Sign Up', new_user_registration_path %>
           <% end %>
         </div>
+        <% if user_signed_in? %>
+          <div class="top-bar-right navbar">
+            <%= link_to 'Create New Project', new_project_path %>
+          </div>
+        <% end %>
       </div>
     </nav>
 
     <h1 class="text-center heading">DIYsign.</h1>
-
+    <div class="row column">
     <% if notice.is_a?(Array) %>
       <% notice.each do |this_notice| %>
         <p class="notice"><%= this_notice %></p>
@@ -35,8 +40,9 @@
     <% elsif notice %>
       <p class="notice"> <%= notice %></p>
     <% end %>
-    <div class="row column">
-      <%= yield %>
+
+    <%= yield %>
+    
     </div>
 
   </body>

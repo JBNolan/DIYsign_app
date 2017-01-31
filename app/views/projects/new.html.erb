@@ -1,0 +1,25 @@
+<%= form_for(@project) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :supplies %><br/>
+    <%= f.text_field :supplies %>
+  </div>
+
+  <div class="field">
+    <%= f.label :picture %><br/>
+    <%= f.text_field :picture, placeholder: "Please enter a complete image web address"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Project" %>
+  </div>
+<% end %>
