@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @step = Step.new
+    @steps = @project.steps
   end
 
   def new
