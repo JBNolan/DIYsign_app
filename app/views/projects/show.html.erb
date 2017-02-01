@@ -6,10 +6,40 @@
   <li><%= @project.user.username %> </li>
 </ul>
 
-<% if current_user.id == @project.user.id %>
-  <%= link_to "Update Project", edit_project_path %>
+<h3>Steps</h3>
+
+<% @steps.each_with_index do |step, index| %>
+  <p>Step <%= index + 1 %> </p>
+  <p> <%= step.step_description %> </p>
+  <%= image_tag(step.step_picture) %>
+  <% if current_user.id == @project.user.id %>
+    <%= link_to "Update Step", edit_project_step_path(@project, step)%>
+  <% end %>
 <% end %>
 
 <% if current_user.id == @project.user.id %>
+
+  <h3>Add Another Step</h3>
+
+  <%= form_for [@project, @step] do |f| %>
+    <div class="field">
+      <%= f.label :step_description, "Description" %>
+      <%= f.text_area :step_description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :step_picture, "Picture" %>
+      <%= f.text_field :step_picture %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add Step" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Update Project", edit_project_path %>
+
   <%= link_to "Delete Project", @project, method: :delete %>
 <% end %>
+
+<%= link_to "Back To Projects", root_path %>

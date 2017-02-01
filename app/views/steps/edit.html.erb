@@ -1,0 +1,17 @@
+<%= form_for [@project, @step] do |f| %>
+  <div class="field">
+    <%= f.label :step_description, "Description" %>
+    <%= f.text_area :step_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :step_picture, "Picture" %>
+    <%= f.text_field :step_picture %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Step" %>
+  </div>
+<% end %>
+
+<%= link_to "Delete Step", project_step_path(@project, @step), method: :delete, data: {confirm: "Are you sure?"} %>
