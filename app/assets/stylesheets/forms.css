@@ -1,17 +1,14 @@
 .sign_up_whole {
   padding: 10px;
-  background-color: white;
-  opacity:0.7;
-  border-radius: 30px;
+  background: rgba(255, 255, 255, .5);
+  border-radius: 15px;
 }
 
 .subheading {
   font-weight: bold;
-  opacity: 1;
 }
 
 .sign_up_heading {
   font-size: 1.5em;
   font-weight: bold;
-  opacity: 1;
 }

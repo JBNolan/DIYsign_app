@@ -12,6 +12,7 @@
   <p>Step <%= index + 1 %> </p>
   <p> <%= step.step_description %> </p>
   <%= image_tag(step.step_picture) %>
+
   <% if current_user.id == @project.user.id %>
     <%= link_to "Update Step", edit_project_step_path(@project, step)%>
   <% end %>
@@ -40,6 +41,29 @@
   <%= link_to "Update Project", edit_project_path %>
 
   <%= link_to "Delete Project", @project, method: :delete %>
+<% end %>
+
+<h3>Comments</h3>
+
+<% @comments.each do |comment| %>
+  <p> <%= comment.body %> </p>
+
+  <% if current_user.id == comment.user.id %>
+    <%= link_to "Update Comment", edit_project_comment_path(@project, comment)%>
+  <% end %>
+<% end %>
+
+<h3>Add Comment</h3>
+
+<%= form_for [@project, @comment] do |f| %>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Comment" %>
+  </div>
 <% end %>
 
 <%= link_to "Back To Projects", root_path %>
