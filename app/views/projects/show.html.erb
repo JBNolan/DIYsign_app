@@ -9,11 +9,12 @@
 <h3>Steps</h3>
 
 <% @steps.each_with_index do |step, index| %>
-  <ul>
-    <li>Step <%= index + 1 %> </li>
-    <li> <%= step.step_description %> </li>
-    <%= image_tag(step.step_picture) %>
-  </ul>
+  <p>Step <%= index + 1 %> </p>
+  <p> <%= step.step_description %> </p>
+  <%= image_tag(step.step_picture) %>
+  <% if current_user.id == @project.user.id %>
+    <%= link_to "Update Step", edit_project_step_path(@project, step)%>
+  <% end %>
 <% end %>
 
 <% if current_user.id == @project.user.id %>
