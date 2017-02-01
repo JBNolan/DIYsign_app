@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   has_many :projects
+  has_many :comments
 
   validates_presence_of :zip
   validates_presence_of :username

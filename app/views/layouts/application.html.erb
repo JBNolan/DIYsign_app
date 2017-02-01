@@ -32,6 +32,7 @@
     </nav>
 
     <h1 class="text-center heading">DIYsign.</h1>
+    
     <div class="row column">
     <% if notice.is_a?(Array) %>
       <% notice.each do |this_notice| %>
@@ -42,7 +43,7 @@
     <% end %>
 
     <%= yield %>
-    
+
     </div>
 
   </body>

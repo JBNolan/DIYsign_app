@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @step = Step.new
     @steps = @project.steps
+    @comment = Comment.new
+    @comments = @project.comments
   end
 
   def new

@@ -1,7 +1,7 @@
 require "rails_helper"
 
   # [] As an authenticated user
-  # [] I want to add a step to a project in which I'm the owner
+  # [] I want to update a step to a project in which I'm the owner
 
 feature "authenticated user can update a step to a project that they've created" do
   scenario "authenticated user updates step successfully" do
