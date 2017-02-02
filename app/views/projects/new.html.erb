@@ -21,10 +21,11 @@
       <%= f.label :picture, :class => "sign_up_heading" %><br/>
       <%= f.text_field :picture, placeholder: "Please enter a complete image web address" %>
     </div>
+
+    <div class="actions">
+      <%= f.submit "Create Project" %>
+    </div>
+  <% end %>
 </div>
-  <div class="actions">
-    <%= f.submit "Create Project", :class => "sign-in-buttons" %>
-  </div>
-<% end %>
 
 <%= link_to "Back To Projects", root_path, class: "back-links" %>
