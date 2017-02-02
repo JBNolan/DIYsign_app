@@ -12,3 +12,25 @@
   font-size: 1.5em;
   font-weight: bold;
 }
+
+.sign-in-buttons {
+  border: none;
+  width: 100%;
+  font-size : 25px;
+  font-weight: bold;
+  color : white;
+  padding : 5px 17px;
+  background : black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  opacity: .8;
+}
+
+.sign-in-buttons:hover {
+  opacity: 1;
+}
+
+.back-links {
+  font-size: 2em;
+  font-weight: bold;
+}
