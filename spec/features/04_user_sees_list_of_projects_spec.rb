@@ -30,6 +30,7 @@ feature "user sees a list of projects" do
     expect(page).to have_css("img[src*='#{project.picture}']")
     expect(page).to have_content project.description
     expect(page).to have_content project.supplies
+    expect(page).to have_content project.category
     expect(page).to have_content project.user.username
   end
 

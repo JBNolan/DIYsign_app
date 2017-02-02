@@ -14,3 +14,18 @@ body {
   background-color: black;
   font-weight: bold;
 }
+
+.header-links {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.15em;
+}
+
+.header-links-div {
+  background: rgba(0, 0, 0, .5);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-left: 27%;
+  margin-right: 27%;
+  border-radius: 5px;
+}
