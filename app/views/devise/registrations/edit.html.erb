@@ -42,17 +42,13 @@
             <%= f.label :current_password, "Current Password", :class => "sign_up_heading" %> <i>(we need your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
-
-          <div class="actions">
-            <%= f.submit "Update" %>
-          </div>
         </div>
-    <% end %>
+      </div>
   </div>
-</div>
+          <div class="actions">
+            <%= f.submit "Update", :class => "sign-in-buttons" %>
+          </div>
+    <% end %>
 
-  <h3>Cancel My Account</h3>
-
-  <%= button_to "Cancel My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
+  <%= button_to "Cancel My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "sign-in-buttons" %></p>
+  <%= link_to "Back", :back, class: "back-links" %>

@@ -35,14 +35,11 @@
           <%= f.label :password_confirmation, "Password Confirmation", :class => "sign_up_heading" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
-
-        <div class="actions">
-          <%= f.submit "Sign Up" %>
-        </div>
       </div>
-
     </div>
-  <% end %>
 </div>
 
-<%= render "devise/shared/links" %>
+  <div class="actions">
+    <%= f.submit "Sign Up", :class => "sign-in-buttons" %>
+  </div>
+<% end %>
