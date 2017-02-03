@@ -17,7 +17,7 @@ class StepsController < ApplicationController
   def edit
     @project = Project.find(params[:project_id])
     @step = Step.find(params[:id])
-    if @project.user != current_user
+    if @project.user != current_user && !current_user.admin?
       flash[:notice] =  "Only project owner can update step information"
       redirect_to project_path(@project)
     end
@@ -38,7 +38,7 @@ class StepsController < ApplicationController
   def destroy
     @project = Project.find(params[:project_id])
     @step = Step.find(params[:id])
-    if @project.user == current_user
+    if @project.user == current_user || current_user.admin? 
       @step.destroy
       redirect_to project_path(@project)
     else

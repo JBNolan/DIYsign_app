@@ -32,8 +32,9 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @categories = Project::CATEGORIES
-    if @project.user.id != current_user.id
+    if @project.user == current_user || current_user.admin?
+      @categories = Project::CATEGORIES
+    else
       flash[:notice] =  "Only project owner can update project information"
       redirect_to project_path(@project)
     end
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
-    if @project.user.id == current_user.id
+    if @project.user == current_user || current_user.admin?
       @project.destroy
       flash[:notice] =  "Project deleted sucessfully"
       redirect_to projects_path

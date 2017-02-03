@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'projects#index'
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
@@ -12,8 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:index, :destroy]
+
   get '/categories' => 'projects#categories', as: 'categories'
 
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

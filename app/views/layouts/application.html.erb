@@ -24,6 +24,9 @@
           <% end %>
         </div>
         <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <%= link_to 'List of Users', users_path %>
+          <% end %>
           <div class="top-bar-right navbar">
             <%= link_to 'Create New Project', new_project_path %>
           </div>

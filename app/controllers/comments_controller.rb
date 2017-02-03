@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def edit
     @project = Project.find(params[:project_id])
     @comment = Comment.find(params[:id])
-    if @comment.user != current_user
+    if @comment.user != current_user && !current_user.admin?
       flash[:notice] =  "Only comment owner can update this comment"
       redirect_to project_path(@project)
     end
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
   def destroy
     @project = Project.find(params[:project_id])
     @comment = Comment.find(params[:id])
-    if @comment.user == current_user
+    if @comment.user == current_user || current_user.admin?
       @comment.destroy
       redirect_to project_path(@project)
     else

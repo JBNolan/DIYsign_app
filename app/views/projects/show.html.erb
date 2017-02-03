@@ -8,7 +8,9 @@
     <p>Made By: <%= @project.user.username %> </p>
     <p>Category: <%= @project.category %> </p>
     <div class="show-links">
-      <%= link_to "Update Project", edit_project_path %>
+      <% if current_user == @project.user || current_user.admin? %>
+        <%= link_to "Update Project", edit_project_path %>
+      <% end %>
     </div>
   </div>
 
@@ -20,7 +22,7 @@
     <div class="small-8 columns project-overview">
       <p class="step">Step <%= index + 1 %> </p>
       <p> <%= step.step_description %> </p>
-      <% if current_user.id == @project.user.id %>
+      <% if current_user == @project.user || current_user.admin? %>
         <%= link_to "Update Step", edit_project_step_path(@project, step)%>
       <% end %>
     </div>
@@ -62,7 +64,7 @@
       </div>
     </p>
 
-    <% if current_user.id == comment.user.id %>
+    <% if current_user == comment.user || current_user.admin? %>
       <%= link_to "Update Comment", edit_project_comment_path(@project, comment)%>
     <% end %>
   </div>
