@@ -1,7 +1,6 @@
-
 <% @projects.each do |project| %>
-  <ul>
-    <li> <%= link_to project.title, project %> </li>
-    <%= image_tag(project.picture) %>
-  </ul>
+  <div class="small-12 medium-5 columns text-center project-background">
+    <h3 class="project-index"> <%= link_to project.title, project %> </h3>
+    <p> <%= image_tag(project.picture) %> </p>
+  </div>
 <% end %>
