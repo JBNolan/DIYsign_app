@@ -22,8 +22,13 @@
       <%= f.text_field :picture, placeholder: "Please enter a complete image web address" %>
     </div>
 
+    <div class="row">
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select(@categories) %>
+    </div>
+
     <div class="actions">
-      <%= f.submit "Create Project" %>
+      <%= f.submit "Create Project", class: "sign-in-buttons" %>
     </div>
   <% end %>
 </div>

@@ -4,6 +4,7 @@ FactoryGirl.define do
     description 'Project Description'
     picture 'http://www.apartmentguide.com/blog/wp-content/uploads/2014/03/DIY-Bookshelf-Finished-Project.png'
     supplies 'wood; hammer; nails'
+    category 'Home Improvement'
     user
   end
 end

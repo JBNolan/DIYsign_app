@@ -16,6 +16,7 @@ feature "authenticated user can delete a project that they've created" do
 
     visit project_path(project)
 
+    click_link 'Update Project'
     click_link 'Delete Project'
 
     expect(page).to have_content project2.title

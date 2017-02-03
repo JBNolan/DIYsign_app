@@ -18,6 +18,7 @@ feature "authenticated user can create a new project " do
     fill_in 'Description', with: 'Project Description'
     fill_in 'Picture', with: 'http://www.apartmentguide.com/blog/wp-content/uploads/2014/03/DIY-Bookshelf-Finished-Project.png'
     fill_in 'Supplies', with: 'Wood; nails; other things'
+    select 'Home Improvement', from: 'Category'
 
     click_button 'Create Project'
 
@@ -25,6 +26,8 @@ feature "authenticated user can create a new project " do
     expect(page).to have_css("img[src*='http://www.apartmentguide.com/blog/wp-content/uploads/2014/03/DIY-Bookshelf-Finished-Project.png']")
     expect(page).to have_content 'Project Description'
     expect(page).to have_content 'Wood; nails; other things'
+    expect(page).to have_content 'Home Improvement'
+
     expect(page).to have_content user.username
   end
 

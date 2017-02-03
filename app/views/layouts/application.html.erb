@@ -32,7 +32,16 @@
     </nav>
 
     <h1 class="text-center heading">DIYsign.</h1>
-    
+
+    <div class="text-center header-links-div">
+      <div class="header-links">
+        <%= link_to "Home Improvement", categories_path(params:{id: "Home Improvement"}), class: "header-links" %>
+        <%= link_to "Crafting", categories_path(params:{id: "Crafting"}), class: "header-links" %>
+        <%= link_to "Costumes", categories_path(params:{id: "Costumes"}), class: "header-links" %>
+        <%= link_to "Misc.", categories_path(params:{id: "Misc."}), class: "header-links" %>
+      </div>
+    </div>
+
     <div class="row column">
     <% if notice.is_a?(Array) %>
       <% notice.each do |this_notice| %>

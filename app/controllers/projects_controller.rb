@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @categories = Project::CATEGORIES
   end
 
   def create
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @categories = Project::CATEGORIES
     if @project.user.id != current_user.id
       flash[:notice] =  "Only project owner can update project information"
       redirect_to project_path(@project)
@@ -39,6 +41,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @categories = Project::CATEGORIES
     if @project.user.id == current_user.id && @project.update(project_params)
       flash[:notice] =  "Project updated successfully"
       redirect_to project_path(@project)
@@ -60,9 +63,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def categories
+    @projects = Project.where(category: params[:id])
+  end
+
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :supplies, :picture)
+    params.require(:project).permit(:title, :description, :supplies, :picture, :category)
   end
 end

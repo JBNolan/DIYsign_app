@@ -19,7 +19,14 @@
     <%= f.text_field :picture, placeholder: "Please enter a complete image web address"%>
   </div>
 
+  <div class="row">
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select(@categories), :selected => @project.category  %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update Project" %>
   </div>
 <% end %>
+
+<%= link_to "Delete Project", @project, method: :delete %>
