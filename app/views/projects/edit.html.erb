@@ -1,32 +1,34 @@
-<%= form_for(@project) do |f| %>
-  <div class="field">
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </div>
+<% if @project.user == current_user %>
+  <%= form_for(@project) do |f| %>
+    <div class="field">
+      <%= f.label :title %><br/>
+      <%= f.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description %><br/>
-    <%= f.text_field :description %>
-  </div>
+    <div class="field">
+      <%= f.label :description %><br/>
+      <%= f.text_field :description %>
+    </div>
 
-  <div class="field">
-    <%= f.label :supplies %><br/>
-    <%= f.text_field :supplies %>
-  </div>
+    <div class="field">
+      <%= f.label :supplies %><br/>
+      <%= f.text_field :supplies %>
+    </div>
 
-  <div class="field">
-    <%= f.label :picture %><br/>
-    <%= f.text_field :picture, placeholder: "Please enter a complete image web address"%>
-  </div>
+    <div class="field">
+      <%= f.label :picture %><br/>
+      <%= f.text_field :picture, placeholder: "Please enter a complete image web address"%>
+    </div>
 
-  <div class="row">
-    <%= f.label :category %>
-    <%= f.select :category, options_for_select(@categories), :selected => @project.category  %>
-  </div>
+    <div class="row">
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select(@categories), :selected => @project.category  %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update Project" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Update Project" %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to "Delete Project", @project, method: :delete %>

@@ -1,12 +1,14 @@
-<%= form_for [@project, @comment] do |f| %>
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
+<% if @project.user == current_user %>
+  <%= form_for [@project, @comment] do |f| %>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update Comment" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Update Comment" %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to "Delete Comment", project_comment_path(@project, @comment), method: :delete, data: {confirm: "Are you sure?"} %>

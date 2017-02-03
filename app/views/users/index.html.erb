@@ -1,0 +1,11 @@
+<h3>DIYsign Users</h3>
+
+<% @users.each do |user| %>
+  <div>
+    <% if user.id != current_user.id %>
+      <p><%= user.username %> <%= link_to "Delete User", user, method: :delete %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<p><%= link_to "Back To Projects", root_path %></p>
