@@ -6,6 +6,6 @@
 <% @projects.each do |project| %>
   <div class="small-12 medium-5 columns text-center project-background">
     <h3 class="project-index"> <%= link_to project.title, project %> </h3>
-    <p> <%= image_tag(project.picture) %> </p>
+    <p> <%= image_tag(project.project_photo) %> </p>
   </div>
 <% end %>

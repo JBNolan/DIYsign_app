@@ -38,7 +38,7 @@ class StepsController < ApplicationController
   def destroy
     @project = Project.find(params[:project_id])
     @step = Step.find(params[:id])
-    if @project.user == current_user || current_user.admin? 
+    if @project.user == current_user || current_user.admin?
       @step.destroy
       redirect_to project_path(@project)
     else
@@ -50,7 +50,7 @@ class StepsController < ApplicationController
   private
 
   def step_params
-    params.require(:step).permit(:step_description, :step_picture)
+    params.require(:step).permit(:step_description, :step_photo)
   end
 
 end

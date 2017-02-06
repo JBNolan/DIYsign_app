@@ -10,7 +10,7 @@ feature "user sees a list of projects" do
     visit root_path
 
     expect(page).to have_content project.title
-    expect(page).to have_css("img[src*='#{project.picture}']")
+    expect(page).to have_css("img[src*='#{project.project_photo}']")
   end
 
   scenario "authorized user is taken to show page for given project" do
@@ -27,7 +27,7 @@ feature "user sees a list of projects" do
     click_link project.title
 
     expect(page).to have_content project.title
-    expect(page).to have_css("img[src*='#{project.picture}']")
+    expect(page).to have_css("img[src*='#{project.project_photo}']")
     expect(page).to have_content project.description
     expect(page).to have_content project.supplies
     expect(page).to have_content project.category

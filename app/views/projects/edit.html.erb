@@ -16,11 +16,11 @@
     </div>
 
     <div class="field">
-      <%= f.label :picture %><br/>
-      <%= f.text_field :picture, placeholder: "Please enter a complete image web address"%>
+      <%= f.label :project_photo, "Project Photo", :class => "sign_up_heading" %><br />
+      <%= f.file_field :project_photo %>
     </div>
 
-    <div class="row">
+    <div class="field">
       <%= f.label :category %>
       <%= f.select :category, options_for_select(@categories), :selected => @project.category  %>
     </div>

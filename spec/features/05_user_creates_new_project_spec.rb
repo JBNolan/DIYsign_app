@@ -16,14 +16,14 @@ feature "authenticated user can create a new project " do
     click_link 'Create New Project'
     fill_in 'Title', with: 'Project Title'
     fill_in 'Description', with: 'Project Description'
-    fill_in 'Picture', with: 'http://www.apartmentguide.com/blog/wp-content/uploads/2014/03/DIY-Bookshelf-Finished-Project.png'
+    attach_file 'Project Photo', "#{Rails.root}/spec/support/images/paul_rules.jpg"
     fill_in 'Supplies', with: 'Wood; nails; other things'
     select 'Home Improvement', from: 'Category'
 
     click_button 'Create Project'
 
     expect(page).to have_content 'Project Title'
-    expect(page).to have_css("img[src*='http://www.apartmentguide.com/blog/wp-content/uploads/2014/03/DIY-Bookshelf-Finished-Project.png']")
+    expect(page).to have_css("img[src*='paul_rules.jpg']")
     expect(page).to have_content 'Project Description'
     expect(page).to have_content 'Wood; nails; other things'
     expect(page).to have_content 'Home Improvement'
