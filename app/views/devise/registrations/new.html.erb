@@ -35,6 +35,12 @@
           <%= f.label :password_confirmation, "Password Confirmation", :class => "sign_up_heading" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
+
+        <div class="field">
+          <%= f.label :profile_photo, "Profile Photo (optional)", :class => "sign_up_heading" %><br />
+          <%= f.file_field :profile_photo %>
+        </div>
+
         <div class="actions">
           <%= f.submit "Sign Up", class: "sign-in-buttons" %>
         </div>

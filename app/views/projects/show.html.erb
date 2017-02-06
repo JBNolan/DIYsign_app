@@ -1,7 +1,7 @@
 <div class="sign_up_whole">
   <h2 class="text-center project-title small-12 columns"><%= @project.title %> </h2>
 
-  <p class="small-4 columns text-center show-pic"><%= image_tag(@project.picture) %> </p>
+  <p class="small-4 columns text-center show-pic"><%= image_tag(@project.project_photo) %> </p>
   <div class="small-8 columns project-overview">
     <p>Description: <%= @project.description %> </p>
     <p>Supplies: <%= @project.supplies %> </p>
@@ -17,7 +17,7 @@
 <h3 class="text-center project-title small-12 columns">Steps</h3>
 <% @steps.each_with_index do |step, index| %>
   <div class="small-12 columns">
-    <p class="small-4 columns text-center show-pic"> <%= image_tag(step.step_picture) %> </p>
+    <p class="small-4 columns text-center show-pic"> <%= image_tag(step.step_photo) %> </p>
 
     <div class="small-8 columns project-overview">
       <p class="step">Step <%= index + 1 %> </p>
@@ -41,8 +41,8 @@
     </div>
 
     <div class="field">
-      <%= f.label :step_picture, "Picture", class: "small-12 columns sign_up_heading" %>
-      <%= f.text_field :step_picture %>
+      <%= f.label :step_photo, "Step Photo", :class => "sign_up_heading" %><br />
+      <%= f.file_field :step_photo %>
     </div>
 
     <div class="actions">

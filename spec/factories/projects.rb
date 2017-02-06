@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :project do
     title 'Project Title'
     description 'Project Description'
-    picture 'http://www.apartmentguide.com/blog/wp-content/uploads/2014/03/DIY-Bookshelf-Finished-Project.png'
+    project_photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'paul_rules.jpg')) }
     supplies 'wood; hammer; nails'
     category 'Home Improvement'
     user

@@ -42,6 +42,12 @@
             <%= f.label :current_password, "Current Password", :class => "sign_up_heading" %> <i>(we need your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
+
+          <div class="field">
+            <%= f.label :profile_photo, "Profile Photo", :class => "sign_up_heading" %><br />
+            <%= f.file_field :profile_photo %>
+          </div>
+
           <div class="actions">
             <%= f.submit "Update", class: "sign-in-buttons" %>
           </div>

@@ -17,11 +17,11 @@ feature "authenticated user can add a step to a project that they've created" do
     visit project_path(project)
 
     fill_in 'Description', with: 'First, we sand down the wood'
-    fill_in 'Picture', with: 'http://diyjoy.com/wp-content/uploads/2015/07/17-DIY-Picture-Frames-4.jpg'
+    attach_file 'Step Photo', "#{Rails.root}/spec/support/images/paul_rules.jpg"
     click_button 'Add Step'
 
     expect(page).to have_content 'First, we sand down the wood'
-    expect(page).to have_css("img[src*='http://diyjoy.com/wp-content/uploads/2015/07/17-DIY-Picture-Frames-4.jpg']")
+    expect(page).to have_css("img[src*='paul_rules.jpg']")
   end
 
   scenario "authenticated user unable to add step because of invalid information" do
@@ -37,7 +37,7 @@ feature "authenticated user can add a step to a project that they've created" do
     visit project_path(project)
 
     fill_in 'Description', with: ''
-    fill_in 'Picture', with: 'http://diyjoy.com/wp-content/uploads/2015/07/17-DIY-Picture-Frames-4.jpg'
+    attach_file 'Step Photo', "#{Rails.root}/spec/support/images/paul_rules.jpg"
     click_button 'Add Step'
 
     expect(page).to have_content 'Step description can\'t be blank'
