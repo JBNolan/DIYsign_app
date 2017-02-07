@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @projects = Project.where(user_id: @user.id)
+  end
+
   def destroy
     @deleteuser = User.find(params[:id])
     if current_user.admin?
