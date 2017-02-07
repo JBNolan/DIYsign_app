@@ -1,0 +1,10 @@
+<h1> <%= @user.username %> </h1>
+<h3>Joined: </h3>
+<h3>Projects Posted: <%= @projects.length %> </h3>
+
+<% @projects.each do |project| %>
+  <div class="small-12 medium-5 columns text-center project-background">
+    <h3 class="project-index"> <%= link_to project.title, project %> </h3>
+    <p> <%= image_tag(project.project_photo) %> </p>
+  </div>
+<% end %>

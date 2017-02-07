@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :destroy]
+  resources :users, only: [:index, :show, :destroy]
 
   get '/categories' => 'projects#categories', as: 'categories'
 
