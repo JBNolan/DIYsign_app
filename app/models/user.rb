@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :comments
+  has_many :votes
+  has_many :comments, through: :votes
 
   validates_presence_of :zip
   validates_presence_of :username

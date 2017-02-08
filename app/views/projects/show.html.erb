@@ -62,6 +62,7 @@
       <div class="comment-body">
         <%= comment.body %>
       </div>
+      <div class="vote" data-id="<%= comment.id %>"></div>
     </p>
 
     <% if current_user == comment.user || current_user.admin? %>
