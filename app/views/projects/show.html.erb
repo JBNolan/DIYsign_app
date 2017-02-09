@@ -51,6 +51,18 @@
   <% end %>
 <% end %>
 
+<h3 class="text-center small-12 columns add-comment-title"><%= @project.category %> Stores Closest To You</h3>
+<% @stores['results'].first(5).each do |store| %>
+  <p> Name: <%= store['name'] %> </p>
+  <p> Address: <%= store['vicinity'] %> </p>
+  <% if !store['opening_hours'].nil? && store['opening_hours']['open_now'] == true %>
+    <p> Currently Open </p>
+  <% else %>
+    <p> Currently Closed </p>
+  <% end %>
+<% end %>
+
+
 <h3 class="text-center small-12 columns add-comment-title">Comments</h3>
 
 <% @comments.each do |comment| %>
@@ -69,16 +81,6 @@
       <%= link_to "Update Comment", edit_project_comment_path(@project, comment)%>
     <% end %>
   </div>
-<% end %>
-
-<% @stores['results'].first(5).each do |store| %>
-  <p> Name: <%= store['name'] %> </p>
-  <p> Address: <%= store['vicinity'] %> </p>
-  <% if !store['opening_hours'].nil? && store['opening_hours']['open_now'] == true %>
-    <p> Currently Open </p>
-  <% else %>
-    <p> Currently Closed </p>
-  <% end %>
 <% end %>
 
 <h3 class="text-center small-12 columns add-comment-title">Add Comment</h3>
