@@ -10,6 +10,14 @@ body {
   font-size: 6em;
 }
 
+.diysign-pic {
+  height: 23em;
+  width: 28em;
+  margin-top: -80px;
+  margin-bottom: -70px;
+
+}
+
 .navbar {
   background-color: black;
   font-weight: bold;
@@ -37,7 +45,7 @@ body {
 }
 
 .project-background {
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, .7);
   border-radius: 15px;
   margin-bottom: 10px;
   margin: 3%;
