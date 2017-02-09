@@ -23,7 +23,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :category %>
+      <%= f.label :category, :class => "sign_up_heading" %>
       <%= f.select :category, options_for_select(@categories) %>
     </div>
 
@@ -33,4 +33,6 @@
   <% end %>
 </div>
 
-<%= link_to "Back To Projects", root_path, class: "back-links" %>
+<div class="delete-buttons">
+  <%= link_to "Back To Projects", root_path, class: "back-links" %>
+</div>

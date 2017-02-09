@@ -1,11 +1,11 @@
 <%= form_tag(projects_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Find A Project" %>
-  <%= submit_tag "Search", :name => nil %>
+  <%= submit_tag "Search", :name => nil, class: "search-button" %>
 <% end %>
 
 <% @projects.each do |project| %>
   <div class="small-12 medium-5 columns text-center project-background">
     <h3 class="project-index"> <%= link_to project.title, project %> </h3>
-    <p> <%= image_tag(project.project_photo) %> </p>
+    <p> <%= link_to image_tag(project.project_photo), project %> </p>
   </div>
 <% end %>

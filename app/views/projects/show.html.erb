@@ -54,7 +54,7 @@
 <h3 class="text-center small-12 columns add-comment-title">Comments</h3>
 
 <% @comments.each do |comment| %>
-  <div class="comment-border">
+  <div class="comment-border small-12 columns">
     <p>
       <div class="user-comment">
         <%= comment.user.username %>:
@@ -84,5 +84,6 @@
   </div>
 <% end %>
 </div>
-
-<%= link_to "Back To Projects", root_path %>
+<div class="delete-buttons">
+  <%= link_to "Back To Projects", root_path %>
+</div>

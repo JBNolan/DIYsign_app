@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
     if params[:search]
       @projects = Project.search(params[:search])
     else
-      @projects = Project.all
+      @projects = Project.all.order("created_at DESC")
     end
   end
 
