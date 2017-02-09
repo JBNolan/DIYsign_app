@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "DIYsign" %></title>
 
-    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/gif" href="/assets/favicon.ico">
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -40,7 +41,9 @@
       </div>
     </nav>
 
-    <h1 class="text-center heading"><%= link_to 'DIYsign', root_path %></h1>
+    <div class="text-center">
+      <%= link_to image_tag('/assets/DIYsign.png', class: "diysign-pic"), root_path %>
+    </div>
 
     <div class="text-center header-links-div">
       <div class="header-links">

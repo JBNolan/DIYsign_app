@@ -1,4 +1,4 @@
-img {
+.project-pics {
   height: 400px;
   width: 300px;
   border-radius: 15px;
@@ -19,23 +19,38 @@ img {
   font-size: 1.5em;
 }
 
+.step-border {
+  border-top: 5px solid black;
+}
+
 .add-step-title {
   font-size: 2.5em;
   font-weight: bold;
 }
 
+.comment-title {
+  font-size: 2.7em;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
 .add-comment-title {
-  font-size: 2.6em;
+  font-size: 1.8em;
   font-weight: bold;
   margin-top: 15px;
 }
 
 .show-links {
   font-size: 1.3em;
+  color: #333333;
+}
+
+.update-links {
+  color: #333333;
 }
 
 .comment-border {
-  border-bottom: 5px solid black;
+  border-bottom: 3px solid #333333;
   padding: 5px;
   margin-top: 5px;
 }
@@ -47,4 +62,19 @@ img {
 
 .comment-body {
   font-size: 1.4em;
+}
+
+.store-title {
+  border-top: 5px solid black;
+  font-size: 2.6em;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.store-border {
+  border-bottom: 5px solid black;
+}
+
+.stores-body {
+  font-size: 1.2em;
 }

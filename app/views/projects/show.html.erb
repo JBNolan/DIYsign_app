@@ -1,34 +1,30 @@
 <div class="sign_up_whole">
   <h2 class="text-center project-title small-12 columns"><%= @project.title %> </h2>
-
-  <p class="small-4 columns text-center show-pic"><%= image_tag(@project.project_photo) %> </p>
+  <p class="small-4 columns text-center"><%= image_tag(@project.project_photo, class: "project-pics") %> </p>
   <div class="small-8 columns project-overview">
     <p>Description: <%= @project.description %> </p>
     <p>Supplies: <%= @project.supplies %> </p>
-    <p>Made By: <%= link_to @project.user.username, @project.user %> </p>
+    <p>Made By: <%= link_to @project.user.username, @project.user, class: "show-links" %> </p>
     <p>Category: <%= @project.category %> </p>
-    <div class="show-links">
-      <% if current_user == @project.user || current_user.admin? %>
-        <%= link_to "Update Project", edit_project_path %>
-      <% end %>
-    </div>
+    <% if current_user == @project.user || current_user.admin? %>
+      <%= link_to "Update Project", edit_project_path, class: "show-links" %>
+    <% end %>
   </div>
 
-<h3 class="text-center project-title small-12 columns">Steps</h3>
+<h3 class="text-center project-title small-12 columns step-border"></h3>
 <% @steps.each_with_index do |step, index| %>
   <div class="small-12 columns">
-    <p class="small-4 columns text-center show-pic"> <%= image_tag(step.step_photo) %> </p>
+    <p class="small-4 columns text-center show-pic"> <%= image_tag(step.step_photo, class: "project-pics") %> </p>
 
     <div class="small-8 columns project-overview">
       <p class="step">Step <%= index + 1 %> </p>
       <p> <%= step.step_description %> </p>
       <% if current_user == @project.user || current_user.admin? %>
-        <%= link_to "Update Step", edit_project_step_path(@project, step)%>
+        <%= link_to "Update Step", edit_project_step_path(@project, step), class: "update-links" %>
       <% end %>
     </div>
   </div>
 <% end %>
-
 
 <% if current_user.id == @project.user.id %>
 
@@ -41,7 +37,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :step_photo, "Step Photo", :class => "sign_up_heading" %><br />
+      <%= f.label :step_photo, "Step Photo", :class => "small-12 columns sign_up_heading" %><br />
       <%= f.file_field :step_photo %>
     </div>
 
@@ -51,34 +47,45 @@
   <% end %>
 <% end %>
 
-<h3 class="text-center small-12 columns add-comment-title"><%= @project.category %> Stores Closest To You</h3>
-<% @stores['results'].first(5).each do |store| %>
-  <p> Name: <%= store['name'] %> </p>
-  <p> Address: <%= store['vicinity'] %> </p>
-  <% if !store['opening_hours'].nil? && store['opening_hours']['open_now'] == true %>
-    <p> Currently Open </p>
-  <% else %>
-    <p> Currently Closed </p>
-  <% end %>
+<% if @project.category == "Misc." %>
+  <h3 class="text-center small-12 columns store-title">Stores Close To You</h3>
+<% elsif @project.category == "Costumes" %>
+  <h3 class="text-center small-12 columns store-title">Costume Stores Close To You</h3>
+<% else %>
+  <h3 class="text-center small-12 columns store-title"><%= @project.category %> Stores Close To You</h3>
 <% end %>
 
 
-<h3 class="text-center small-12 columns add-comment-title">Comments</h3>
+<div class="small-12 columns store-border">
+<% @stores['results'].first(3).each do |store| %>
+  <div class="small-4 columns stores-body">
+    <p> <%= store['name'] %> </p>
+    <p> <%= store['vicinity'] %> </p>
+    <% if !store['opening_hours'].nil? && store['opening_hours']['open_now'] == true %>
+      <p> Currently Open </p>
+    <% else %>
+      <p> Currently Closed </p>
+    <% end %>
+  </div>
+<% end %>
+</div>
+
+<% if @comments.length > 0 %>
+  <h3 class="text-center small-12 columns comment-title">Comments</h3>
+<% end %>
 
 <% @comments.each do |comment| %>
   <div class="comment-border small-12 columns">
-    <p>
       <div class="user-comment">
-        <%= comment.user.username %>:
+        <p> <%= comment.user.username %>: </p>
       </div>
-      <div class="comment-body">
-        <%= comment.body %>
+      <div class="vote small-1 columns" data-id="<%= comment.id %>"></div>
+      <div class="comment-body small-11 columns">
+        <p> <%= comment.body %> </p>
       </div>
-      <div class="vote" data-id="<%= comment.id %>"></div>
-    </p>
 
     <% if current_user == comment.user || current_user.admin? %>
-      <%= link_to "Update Comment", edit_project_comment_path(@project, comment)%>
+      <%= link_to "Update Comment", edit_project_comment_path(@project, comment), class: "update-links" %>
     <% end %>
   </div>
 <% end %>
