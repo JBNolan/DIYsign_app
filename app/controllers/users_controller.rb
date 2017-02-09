@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = Project.where(user_id: @user.id)
+    @datearray = @user.created_at.to_date
   end
 
   def destroy
@@ -25,4 +26,5 @@ class UsersController < ApplicationController
       redirect_to users_path
     end
   end
+
 end

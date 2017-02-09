@@ -16,10 +16,11 @@
       <div class="top-bar navbar">
         <div class="top-bar-left navbar">
           <% if user_signed_in? %>
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> &nbsp
             <%= link_to 'Update Info', edit_user_registration_path %>
           <%else%>
-            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign In', new_user_session_path %> &nbsp
             <%= link_to 'Sign Up', new_user_registration_path %>
           <% end %>
         </div>
@@ -30,14 +31,14 @@
             </div>
           <% end %>
           <div class="top-bar-right navbar">
+            <%= link_to 'Create New Project', new_project_path %> &nbsp
             <%= link_to 'My Profile', current_user %>
-            <%= link_to 'Create New Project', new_project_path %>
           </div>
         <% end %>
       </div>
     </nav>
 
-    <h1 class="text-center heading">DIYsign.</h1>
+    <h1 class="text-center heading"><%= link_to 'DIYsign', root_path %></h1>
 
     <div class="text-center header-links-div">
       <div class="header-links">

@@ -1,20 +1,25 @@
-<% if @project.user == current_user %>
-  <%= form_for [@project, @step] do |f| %>
-    <div class="field">
-      <%= f.label :step_description, "Description" %>
-      <%= f.text_area :step_description %>
-    </div>
+<div class="sign_up_whole">
+  <h2 class="subheading">Edit Step</h2>
 
-    <div class="field">
-      <%= f.label :project_photo, "Project Photo", :class => "sign_up_heading" %><br />
-      <%= f.file_field :project_photo %>
-    </div>
+  <% if @project.user == current_user %>
+    <%= form_for [@project, @step] do |f| %>
+      <div class="field">
+        <%= f.label :step_description, "Description", :class => "sign_up_heading" %>
+        <%= f.text_area :step_description %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Update Step" %>
-    </div>
+      <div class="field">
+        <%= f.label :project_photo, "Project Photo", :class => "sign_up_heading" %><br />
+        <%= f.file_field :project_photo %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update Step", class: "sign-in-buttons" %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-
-<%= link_to "Delete Step", project_step_path(@project, @step), method: :delete, data: {confirm: "Are you sure?"} %>
+<div class="delete-buttons">
+  <%= link_to "Delete Step", project_step_path(@project, @step), method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
