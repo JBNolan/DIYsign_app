@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :zip, presence: true, length: { is: 5 }, numericality: { only_integer: true }
 
+  geocoded_by :zip
+  after_validation :geocode, if: :zip_changed?
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

@@ -14,6 +14,10 @@ class ProjectsController < ApplicationController
     @steps = @project.steps
     @comment = Comment.new
     @comments = @project.comments
+
+    @store_type = type_of_store(@project.category)
+    key = ENV["API_KEY"]
+    @stores = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=50000&type=#{@store_type}&key=#{key}")
   end
 
   def new
@@ -76,5 +80,15 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, :supplies, :project_photo, :category)
+  end
+
+  def type_of_store(category)
+    if category == 'Home Improvement'
+      return 'hardware_store'
+    elsif category == 'Crafting'
+      return 'home_goods_store'
+    else
+      return 'shopping_mall'
+    end
   end
 end

@@ -71,6 +71,16 @@
   </div>
 <% end %>
 
+<% @stores['results'].first(5).each do |store| %>
+  <p> Name: <%= store['name'] %> </p>
+  <p> Address: <%= store['vicinity'] %> </p>
+  <% if !store['opening_hours'].nil? && store['opening_hours']['open_now'] == true %>
+    <p> Currently Open </p>
+  <% else %>
+    <p> Currently Closed </p>
+  <% end %>
+<% end %>
+
 <h3 class="text-center small-12 columns add-comment-title">Add Comment</h3>
 
 <%= form_for [@project, @comment] do |f| %>
