@@ -11,7 +11,18 @@
 }
 
 .project-overview {
-  font-size: 2em;
+  font-size: 1.7em;
+}
+
+.supplies-title {
+  margin-top: -15px;
+  margin-bottom: -5px;
+  text-decoration: underline;
+}
+
+.supplies {
+  font-size: .7em;
+  padding-right: 2px;
 }
 
 .step {

@@ -7,3 +7,9 @@
 .heading-bold{
   font-weight: bold;
 }
+
+.user-pics {
+  max-height: 400px;
+  max-width: 400px;
+  border-radius: 15px;
+}

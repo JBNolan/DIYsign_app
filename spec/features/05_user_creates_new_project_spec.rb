@@ -25,7 +25,7 @@ feature "authenticated user can create a new project " do
     expect(page).to have_content 'Project Title'
     expect(page).to have_css("img[src*='paul_rules.jpg']")
     expect(page).to have_content 'Project Description'
-    expect(page).to have_content 'Wood; nails; other things'
+    expect(page).to have_content 'Wood nails other things'
     expect(page).to have_content 'Home Improvement'
 
     expect(page).to have_content user.username

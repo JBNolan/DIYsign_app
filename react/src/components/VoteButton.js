@@ -82,11 +82,11 @@ class VoteButton extends Component {
     return(
       <div>
         <div onClick={this.handleUpvote}>
-          <button>+</button>
+          <i className="fa fa-caret-up" aria-hidden="true"></i>
         </div>
         <div> {this.state.vote_tally} </div>
         <div onClick={this.handleDownvote}>
-          <button>-</button>
+          <i className="fa fa-caret-down" aria-hidden="true"></i>
         </div>
       </div>
     );

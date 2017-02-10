@@ -8,6 +8,7 @@
 
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" type="image/gif" href="/assets/favicon.ico">
+    <script src="https://use.fontawesome.com/7af61bccb6.js"></script>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -36,6 +37,7 @@
           <div class="top-bar-right navbar">
             <%= link_to 'Create New Project', new_project_path %> &nbsp
             <%= link_to 'My Profile', current_user %>
+            <%= link_to image_tag(current_user.profile_photo, class: "profile-pic"), current_user %>
           </div>
         <% end %>
       </div>
@@ -57,10 +59,10 @@
     <div class="row column">
     <% if notice.is_a?(Array) %>
       <% notice.each do |this_notice| %>
-        <p class="notice"><%= this_notice %></p>
+        <p class="notice notice-background text-center"><%= this_notice %></p>
       <% end %>
     <% elsif notice %>
-      <p class="notice"> <%= notice %></p>
+      <p class="notice notice-background text-center"> <%= notice %></p>
     <% end %>
 
     <%= yield %>

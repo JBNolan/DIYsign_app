@@ -1,8 +1,11 @@
-<div class="sign_up_whole text-center user-heading">
-  <h1 class="heading-bold"> <%= @user.username %> </h1>
-  <h3 class="heading-bold">Joined: <%= @datearray %> </h3>
-  <h3 class="heading-bold">Projects Posted: <%= @projects.length %> </h3>
-</div>
+
+  <div class="sign_up_whole text-center user-heading">
+    <h1 class="heading-bold"> <%= @user.username %> </h1>
+    <%= image_tag(@user.profile_photo, class: "user-pics") %>
+    <h3 class="heading-bold">Joined: <%= @date %> </h3>
+    <h3 class="heading-bold">Projects Posted: <%= @projects.length %> </h3>
+  </div>
+
 
 <% @projects.each do |project| %>
   <div class="small-12 medium-5 columns text-center project-background">

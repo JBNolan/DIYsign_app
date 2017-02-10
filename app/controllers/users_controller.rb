@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = Project.where(user_id: @user.id)
-    @datearray = @user.created_at.to_date
+    @date = @user.created_at.to_date.strftime("%B %d, %Y")
   end
 
   def destroy
