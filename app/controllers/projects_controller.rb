@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
     @store_type = type_of_store(@project.category)
     key = ENV["API_KEY"]
-    @stores = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=10000&type=#{@store_type}&key=#{key}")  
+    @stores = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&rankby=distance&type=#{@store_type}&key=#{key}")  
   end
 
   def new
