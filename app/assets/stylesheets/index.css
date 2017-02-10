@@ -4,6 +4,20 @@ body {
   font-weight: bold;
 }
 
+.notice-background {
+  padding: 10px;
+  background: rgba(0, 0, 0, .7);
+  border-radius: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.profile-pic {
+  height: 22px;
+  width: 22px;
+}
+
 .heading {
   color: white;
   font-family: Futura;

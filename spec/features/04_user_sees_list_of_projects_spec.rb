@@ -29,7 +29,7 @@ feature "user sees a list of projects" do
     expect(page).to have_content project.title
     expect(page).to have_css("img[src*='#{project.project_photo}']")
     expect(page).to have_content project.description
-    expect(page).to have_content project.supplies
+    expect(page).to have_content 'wood hammer nails'
     expect(page).to have_content project.category
     expect(page).to have_content project.user.username
   end

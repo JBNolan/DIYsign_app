@@ -3,7 +3,12 @@
   <p class="small-4 columns text-center"><%= image_tag(@project.project_photo, class: "project-pics") %> </p>
   <div class="small-8 columns project-overview">
     <p>Description: <%= @project.description %> </p>
-    <p>Supplies: <%= @project.supplies %> </p>
+    <p class="supplies-title">Supplies: </p>
+    <ul class="small-12 columns">
+      <% @supplies.each do |supply| %>
+        <li class="supplies small-4 columns"> <%= supply %> </li>
+      <% end %>
+    </ul>
     <p>Made By: <%= link_to @project.user.username, @project.user, class: "show-links" %> </p>
     <p>Category: <%= @project.category %> </p>
     <% if current_user == @project.user || current_user.admin? %>

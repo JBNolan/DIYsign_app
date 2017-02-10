@@ -19,7 +19,7 @@ feature "authenticated user can update project information" do
     fill_in 'Supplies', with: 'Screws; plastic'
     click_button 'Update Project'
 
-    expect(page).to have_content "Screws; plastic"
+    expect(page).to have_content "Screws plastic"
   end
 
   scenario "authenticated user unable to update project because of invalid data" do
