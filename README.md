@@ -1,24 +1,48 @@
-# README
+# SoleMate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+Heroku Link: https://diysign.herokuapp.com/
 
-* Ruby version
+DIYsign is a site where users can view, post, and browse detailed step-by-step instructions of DIY projects. DIYsign is a Ruby on Rails app, with some React components built in for a better UX. The app utilizes the Google Places API, PostgreSQL database, Foundation front end with custom CSS, CarrierWave for photo uploading, and Devise for user authentication.
 
-* System dependencies
+## Features
 
-* Configuration
+* Creating and signing into a user account
+* Adding projects to the database
+* Adding project steps to the database
+* Adding comments for a project
+* Upvoting/downvoting project comments
+* Viewing other user profiles
+* Filtering projects by category
+* Viewing closest relevant stores based on user's zip code
 
-* Database creation
+## Technologies
 
-* Database initialization
+* Ruby on Rails
+* ReactJS
+* PostgreSQL
+* Foundation
+* CarrierWave
+* Devise
+* HTTParty
+* Geocoder
+* S3
+* AWS
+* Heroku
 
-* How to run the test suite
+## Local Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+git clone https://github.com/JBNolan/DIYsign_app.git
+cd DIYsign_app
+bundle install
+npm install
+rake db:create && rake db:migrate
+```
 
-* Deployment instructions
+## Contributing
 
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/JBNolan/DIYsign_app.git. Use the [fork-and-branch](http://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/) workflow to contribute.
+
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
